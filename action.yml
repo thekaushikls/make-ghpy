@@ -6,3 +6,6 @@ runs:
   using: 'composite'
   steps:
     - run: python hello-github.py
+branding:
+  icon: "package"
+  color: "purple"
