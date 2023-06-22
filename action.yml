@@ -1,11 +1,11 @@
-name: 'Python Hello World'
+name: 'Run IronPython'
 description: 'A GitHub Action that runs a Python script with a Hello, World! program.'
 author: 'Your Name'
 inputs: {}
 runs:
   using: 'composite'
   steps:
-    - run: python hello-github.py
+    - run: ipy hello-github.py
 branding:
   icon: "package"
   color: "purple"

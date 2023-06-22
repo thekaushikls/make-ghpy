@@ -10,13 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
-
     - name: Checkout code
       uses: actions/checkout@v2
+    
+    - name: Install IronPython
+      run: choco install ironpython --version=2.7.12
 
     - name: Run Python script
-      run: python hello-github.py
+      run: ipy hello-github.py

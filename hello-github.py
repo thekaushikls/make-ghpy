@@ -1,1 +1,3 @@
-print("hello-from-the-github-side")
+import clr
+
+print "hello-from-the-github-side"
