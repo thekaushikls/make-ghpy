@@ -1,0 +1,8 @@
+name: 'Python Hello World'
+description: 'A GitHub Action that runs a Python script with a Hello, World! program.'
+author: 'Your Name'
+inputs: {}
+runs:
+  using: 'composite'
+  steps:
+    - run: python hello-github.py
