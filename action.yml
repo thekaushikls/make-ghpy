@@ -11,7 +11,6 @@ runs:
   steps:
 
     - name: Install IronPython v2.7.12
-      shell: bash
       run: choco install ironpython --version=2.7.12
 
     - name: Run Script
