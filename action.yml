@@ -1,11 +1,16 @@
 name: 'Run IronPython'
 description: 'A GitHub Action that runs a Python script with a Hello, World! program.'
 author: 'Your Name'
+branding:
+  icon: "package"
+  color: "purple"
+
 inputs: {}
 runs:
   using: 'composite'
   steps:
-    - run: ipy hello-github.py
-branding:
-  icon: "package"
-  color: "purple"
+
+    - name: Install IronPython v2.7.12
+      run: choco install ironpython --version=2.7.12
+
+    - run: ipy build_module.py
