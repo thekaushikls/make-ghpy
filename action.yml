@@ -16,6 +16,7 @@ inputs:
     description: "Version tag of the plugin"
     required: true
   type:
+    default: "ghpy"
     description: "Extension type of the package. Defaults to .ghpy"
     required: false
 outputs:
@@ -37,4 +38,4 @@ runs:
 
     - name: Run Script
       shell: bash
-      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} dll
+      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}} #${{ inputs.type || 'ghpy' }}
