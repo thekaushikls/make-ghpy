@@ -24,5 +24,8 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: MyPlugin.ghpy
-        path: bin/plugin.ghpy
+        name: MyPlugin
+        path: bin/plugin
+        version: 0.0.1-alpha
+        type: ghpy
+

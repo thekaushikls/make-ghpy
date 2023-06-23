@@ -52,7 +52,7 @@ class Compiler:
         return files
     
     @staticmethod
-    def build_plugin(source_dir, package_name):
+    def build_plugin(source_dir, package_name, version="", extension="ghpy"):
         """Collects and compiles project files into a dll.
 
         Args:
@@ -72,6 +72,7 @@ class Compiler:
 
         #print("pdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbq\n")
 
+        package_name += "{}.{}".format(version, extension)
         root_dir = os.path.dirname(source_dir)
         export_dir = os.path.join(root_dir, "bin")
         export_file = os.path.join(export_dir, package_name)
@@ -90,7 +91,7 @@ class Compiler:
         print("\n\n\"{}\" was created successfully!\n\n".format(package_name))
 
         # Set Output
-        print("::set-output name=build_path::{}".format(export_file))
+        print("::set-output name=build_path::{}\n\n".format(export_file))
 
 # - - - - RUN SCRIPT
 
@@ -98,7 +99,7 @@ if __name__ == "__main__":
     
     args = sys.argv[1:]
 
-    if len(args) != 2:
-        raise SyntaxError("Script takes 2 arguments. {} provided.".format(len(args)))
+    if len(args) > 4:
+        raise SyntaxError("Script takes a maximum of 4 arguments. {} provided.".format(len(args)))
     
     Compiler.build_plugin(*args)

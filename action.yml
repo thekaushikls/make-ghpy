@@ -8,9 +8,15 @@ branding:
 inputs:
   source:
     description: "Source folder"
-    required: false
+    required: true
   package-name:
     description: "Name of the package."
+    required: true
+  version:
+    description: "Version tag of the plugin"
+    required: true
+  type:
+    description: "Extension type of the package. Defaults to .ghpy"
     required: false
 outputs:
   build_path:
@@ -31,4 +37,4 @@ runs:
 
     - name: Run Script
       shell: bash
-      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}}
+      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{github.ref_name}} dll
