@@ -30,12 +30,6 @@ runs:
       shell: pwsh
       run: choco install ironpython --version=2.7.12
 
-    - name: Message
-      shell: pwsh
-      run: |
-        "The Message is: ${{ inputs.source }}"
-        "The Name is: ${{ inputs.package-name }}"
-
     - name: Run Script
       shell: bash
       run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}} #${{ inputs.type || 'ghpy' }}
