@@ -18,5 +18,5 @@ jobs:
     - name: Build Python Plugin
       uses: ./
       with:
-        source: "Myfolder"
-        package-name: "plugin.dll"
+        source: src
+        package-name: plugin.ghpy

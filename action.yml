@@ -10,9 +10,11 @@ inputs:
     description: "Source folder"
     required: false
   package-name:
-    description: "Name of the output package"
+    description: "Name of the package."
     required: false
-
+outputs:
+  build_path:
+    description: "Location of the built package."
 runs:
   using: 'composite'
   steps:
