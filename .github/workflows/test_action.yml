@@ -22,11 +22,11 @@ jobs:
         package-name: plugin
         version: "${{github.ref_name}}"
     
-    - run: Output is at ${{github.steps.build-plugin.outputs.build_path}}
+    - run: echo "Output is at ${{steps.build-plugin.outputs.build_path}}"
     
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: MyPlugin
-        path: ${{github.steps.build-plugin.outputs.build_path}}  
+        path: ${{steps.build-plugin.outputs.build_path}}  
 
