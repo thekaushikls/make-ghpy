@@ -6,8 +6,8 @@ branding:
   color: "purple"
 
 inputs:
-  message:
-    description: "Message to print using IPY"
+  source:
+    description: "Source folder"
     required: false
   package-name:
     description: "Name of the output package"
@@ -24,9 +24,9 @@ runs:
     - name: Message
       shell: pwsh
       run: |
-        "The Message is: ${{ inputs.message }}"
+        "The Message is: ${{ inputs.source }}"
         "The Name is: ${{ inputs.package-name }}"
 
     - name: Run Script
       shell: bash
-      run: ipy build_module.py
+      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}}
