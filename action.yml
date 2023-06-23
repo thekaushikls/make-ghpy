@@ -22,7 +22,7 @@ runs:
       run: choco install ironpython --version=2.7.12
 
     - name: Message
-      shell: bash
+      shell: pwsh
       run: |
         "The Message is: ${{ inputs.message }}"
         "The Name is: ${{ inputs.package-name }}"
