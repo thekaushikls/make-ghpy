@@ -9,8 +9,6 @@ inputs: {}
 runs:
   using: 'composite'
   steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v3
 
     - name: Install IronPython v2.7.12
       shell: bash
