@@ -23,9 +23,7 @@ runs:
 
     - name: Message
       shell: bash
-      run: |
-        "The Message is: ${{ inputs.source }}"
-        "The Name is: ${{ inputs.package-name }}"
+      run: "The Message is:" ${{ inputs.source }}
 
     - name: Run Script
       shell: bash
