@@ -72,7 +72,7 @@ class Compiler:
 
         #print("pdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbq\n")
 
-        package_name += "{}.{}".format(version, extension)
+        package_name += "-{}.{}".format(version, extension)
         root_dir = os.path.dirname(source_dir)
         export_dir = os.path.join(root_dir, "bin")
         export_file = os.path.join(export_dir, package_name)
