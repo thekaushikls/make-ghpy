@@ -5,13 +5,27 @@ branding:
   icon: "package"
   color: "purple"
 
-inputs: {}
+inputs:
+  message:
+    description: "Message to print using IPY"
+    required: false
+  
+  package-name:
+    description: "Name of the output package"
+    required: false
+
 runs:
   using: 'composite'
   steps:
 
     - name: Install IronPython v2.7.12
+      shell: bash
       run: choco install ironpython --version=2.7.12
+
+    - name: Message
+      shell: bash
+      run: "The Message is: ${{ inputs.source }}"
+      run: "The Name is: ${{ inputs.package-name }}"
 
     - name: Run Script
       shell: bash
