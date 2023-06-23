@@ -93,7 +93,7 @@ class Compiler:
         # Set Output
         #print("::set-output name=build_path::{}\n\n".format(export_file))
 
-        print("\"build_path={}\" >> $GITHUB_OUTPUT".format(export_file))
+        print('"build_path={}" >> $GITHUB_OUTPUT'.format(export_file))
 
 # - - - - RUN SCRIPT
 
