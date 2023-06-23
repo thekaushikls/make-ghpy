@@ -37,4 +37,4 @@ runs:
 
     - name: Run Script
       shell: bash
-      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{github.ref_name}} dll
+      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} dll
