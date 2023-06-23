@@ -20,3 +20,9 @@ jobs:
       with:
         source: src
         package-name: plugin.ghpy
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: MyPlugin.ghpy
+        path: bin/plugin.ghpy
