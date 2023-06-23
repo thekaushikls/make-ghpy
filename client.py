@@ -92,7 +92,9 @@ class Compiler:
 
         # Set Output
         #print("::set-output name=build_path::{}\n\n".format(export_file))
-        with open(os.environ["GITHUB_OUTPUT"], 'a') as file:
+        #with open(os.environ["GITHUB_OUTPUT"], 'a') as file:
+        #    file.write("build_path={}".format(export_file))
+        with open(os.getenv("GITHUB_OUTPUT"), "a") as file:
             file.write("build_path={}".format(export_file))
 
 # - - - - RUN SCRIPT
