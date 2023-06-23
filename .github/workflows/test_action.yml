@@ -15,15 +15,18 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Build Python Plugin
+      id: build-plugin
       uses: ./
       with:
         source: src
         package-name: plugin
         version: "${{github.ref_name}}"
     
+    - run: Output is at ${{github.steps.build-plugin.outputs.build_path}}
+    
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: MyPlugin
-        path: bin/        
+        path: ${{github.steps.build-plugin.outputs.build_path}}  
 

@@ -32,4 +32,4 @@ runs:
 
     - name: Run Script
       shell: bash
-      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}} #${{ inputs.type || 'ghpy' }}
+      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
