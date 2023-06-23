@@ -9,7 +9,6 @@ inputs:
   message:
     description: "Message to print using IPY"
     required: false
-  
   package-name:
     description: "Name of the output package"
     required: false
@@ -19,7 +18,7 @@ runs:
   steps:
 
     - name: Install IronPython v2.7.12
-      shell: bash
+      shell: pwsh
       run: choco install ironpython --version=2.7.12
 
     - name: Message

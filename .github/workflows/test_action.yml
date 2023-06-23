@@ -17,6 +17,6 @@ jobs:
 
     - name: Build Python Plugin
       uses: ./
-        with:
-          message: "I am running from the repo"
-          package-name: "plugin.dll"
+      with:
+        message: "I am running from the repo"
+        package-name: "plugin.dll"
