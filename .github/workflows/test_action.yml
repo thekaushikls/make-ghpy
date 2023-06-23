@@ -12,8 +12,6 @@ jobs:
     runs-on: [windows-latest]
 
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v3
-
+    
     - name: Build Python Plugin
       uses: ./
