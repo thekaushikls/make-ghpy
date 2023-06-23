@@ -91,7 +91,9 @@ class Compiler:
         print("\n\n\"{}\" was created successfully!\n\n".format(package_name))
 
         # Set Output
-        print("::set-output name=build_path::{}\n\n".format(export_file))
+        #print("::set-output name=build_path::{}\n\n".format(export_file))
+        cmd = 'echo "build_path={}" >> $GITHUB_OUTPUT'.format(export_file)
+        os.system(cmd)
 
 # - - - - RUN SCRIPT
 
