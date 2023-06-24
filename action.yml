@@ -31,5 +31,10 @@ runs:
       run: choco install ironpython --version=2.7.12
 
     - name: Run Script
+      id: runscript
       shell: pwsh
       run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
+
+    - name: Print Output
+      shell: bash
+      run: echo The output is "${{steps.runscript.outputs.BUILD_PATH}}"
