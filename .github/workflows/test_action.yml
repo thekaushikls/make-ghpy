@@ -22,8 +22,7 @@ jobs:
       with:
         source: src
         package-name: plugin
-        #version: "${{github.ref_name}}"
-        version: 0.0.1-alpha
+        version: "${{github.ref_name}}"
     
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
