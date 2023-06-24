@@ -20,8 +20,8 @@ inputs:
     description: "Extension type of the package. Defaults to \".ghpy\""
     required: false
 outputs:
-  build_path:
-    description: "Location of the built package."
+  build_path: "${{steps.compile.outputs.BUILD_PATH}}"
+    
 runs:
   using: 'composite'
   steps:
@@ -34,3 +34,10 @@ runs:
       id: compile
       shell: pwsh
       run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
+    
+    - name: Check
+      shell: bash
+      run: |
+        echo The build_path is: "${{steps.compile.outputs.BUILD_PATH}}"
+        
+
