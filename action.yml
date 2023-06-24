@@ -48,8 +48,7 @@ runs:
       run: |
         import os
         env = os.getenv("GITHUB_OUTPUT")
-        for item in env:
-          print(item)
+        print(env)
         
   
         
