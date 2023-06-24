@@ -17,10 +17,10 @@ inputs:
     required: true
   type:
     default: "ghpy"
-    description: "Extension type of the package. Defaults to .ghpy"
+    description: "Extension type of the package. Defaults to \".ghpy\""
     required: false
 outputs:
-  build_path:
+  build_path: ${{steps.compile.outputs.BUILD_PATH}}
     description: "Location of the built package."
 runs:
   using: 'composite'
@@ -30,11 +30,7 @@ runs:
       shell: pwsh
       run: choco install ironpython --version=2.7.12
 
-    - name: Run Script
-      id: runscript
+    - name: Compile Plugin
+      id: compile
       shell: pwsh
-      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
-
-    - name: Print Output
-      shell: bash
-      run: echo The output is "${{steps.runscript.outputs.BUILD_PATH}}"
+      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}\
