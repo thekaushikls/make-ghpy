@@ -33,4 +33,4 @@ runs:
     - name: Compile Plugin
       id: compile
       shell: pwsh
-      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}\
+      run: ipy client.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
