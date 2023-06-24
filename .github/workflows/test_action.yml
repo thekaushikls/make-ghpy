@@ -24,6 +24,11 @@ jobs:
         package-name: plugin
         version: "${{github.ref_name}}"
     
+    - name: Check
+      shell: bash
+      run: |
+        echo The build_path is: "${{steps.build-plugin.outputs.build_path}}"
+
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
