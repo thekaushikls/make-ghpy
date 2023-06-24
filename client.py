@@ -77,6 +77,7 @@ class Compiler:
         export_dir = os.path.join(root_dir, "bin")
         export_file = os.path.join(export_dir, package_name)
 
+        print("extension: {}".format(extension))
         print("package_name: {}".format(package_name))
         print("root_dir: {}".format(root_dir))
         print("export_dir: {}".format(export_dir))
