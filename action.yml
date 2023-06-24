@@ -39,6 +39,7 @@ runs:
     - name: Check
       shell: bash
       run: |
+        echo SETTING VALUES TO OUTPUT
         echo The build_path is: "${{steps.compile.outputs.BUILD_PATH}}"
         echo "build_path=${{steps.compile.outputs.BUILD_PATH}}" >> "$GITHUB_OUTPUT"
   

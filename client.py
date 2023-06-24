@@ -68,21 +68,12 @@ class Compiler:
         if not Compiler.ironpython_active():
             raise SystemError("IronPython is not running.")
     
-        Compiler.print_title() # Fancy ASCII art
-
-        #print("pdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbq\n")
+        Compiler.print_title()
 
         package_name += "-{}.{}".format(version, extension)
         root_dir = os.path.dirname(source_dir)
         export_dir = os.path.join(root_dir, "bin")
         export_file = os.path.join(export_dir, package_name)
-
-        print("extension: {}".format(extension))
-        print("package_name: {}".format(package_name))
-        print("root_dir: {}".format(root_dir))
-        print("export_dir: {}".format(export_dir))
-        print("export_file: {}".format(export_file))
-
 
         # Create export folder:
         if not os.path.exists(export_dir):
@@ -92,10 +83,6 @@ class Compiler:
         print("Collecting program files...\n")
         program_files = Compiler.collect_files(source_dir)            
 
-        print("program_files")
-        for item in program_files:
-            print(item)
-        
         # Compile Plugin
         import clr
         clr.CompileModules(export_file, *program_files)
