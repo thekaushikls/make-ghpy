@@ -47,7 +47,7 @@ runs:
       shell: python
       run: |
         import os
-        env = os.getenv("GITHUB_OUTPUT")
+        env = os.environ["GITHUB_OUTPUT"]
         print(env)
         
   
