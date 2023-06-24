@@ -16,16 +16,17 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v3
 
-    - name: Build Python Plugin
+    - name: Build Plugin
       id: build-plugin
       uses: ./
       with:
         source: src
         package-name: plugin
-        version: "${{github.ref_name}}"
+        version: v0.0.1-alpha
+        ironpython: true
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: my_package
-        path: ${{steps.build-plugin.outputs.build_path}}
+        name: my_plugin
+        path: ${{steps.build-plugin.outputs.build}}

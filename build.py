@@ -99,8 +99,8 @@ if __name__ == "__main__":
     if len(args) > 4:
         raise SyntaxError("Script takes a maximum of 4 arguments. {} provided.".format(len(args)))
     
-    export_file = Compiler.build_plugin(*args)
+    build = Compiler.build_plugin(*args)
 
     # Set Output to action step
     with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
-        env.write("build_path={}".format(export_file))
+        env.write("build={}".format(build))

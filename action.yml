@@ -1,4 +1,4 @@
-name: 'Run IronPython'
+name: 'Make.GhPy'
 description: 'A GitHub Action that runs a Python script with a Hello, World! program.'
 author: 'Your Name'
 branding:
@@ -9,25 +9,40 @@ inputs:
   source:
     description: "Source folder"
     required: true
+  
   package-name:
     description: "Name of the package."
     required: true
+  
   version:
     description: "Version tag of the plugin"
     required: true
+  
   type:
     default: "ghpy"
     description: "Extension type of the package. Defaults to \".ghpy\""
     required: false
+  
+  ironpython:
+    default: false
+    description: "If true, install IronPython v2.7.12"
+    required: false
+
 outputs:
-  build_path:
+  build:
     description: "Location of the built package."
-    value: ${{steps.compile.outputs.build_path}}
+    value: ${{steps.compile.outputs.build}}
     
 runs:
   using: 'composite'
   steps:
+
+    - name: Install IronPython
+      shell: bash
+      if: ${{inputs.ironpython == 'true'}}
+        run: choco install ironpython --version=2.7.12
+
     - name: Compile Plugin
       id: compile
-      shell: pwsh
-      run: ipy ${{github.action_path}}/main.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
+      shell: bash
+      run: ipy ${{github.action_path}}/build.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
