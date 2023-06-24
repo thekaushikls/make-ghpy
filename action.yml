@@ -22,6 +22,7 @@ inputs:
 outputs:
   build_path:
    description: "Location of the built package."
+   value: {{steps.compile.outputs.build_path}}
     
 runs:
   using: 'composite'
