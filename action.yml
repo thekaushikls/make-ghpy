@@ -40,7 +40,7 @@ runs:
     - name: Install IronPython
       shell: bash
       if: ${{inputs.ironpython == 'true'}}
-        run: choco install ironpython --version=2.7.12
+      run: choco install ironpython --version=2.7.12
 
     - name: Compile Plugin
       id: compile
