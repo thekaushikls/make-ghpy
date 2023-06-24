@@ -101,12 +101,9 @@ class Compiler:
         clr.CompileModules(export_file, *program_files)
         print("\n\n\"{}\" was created successfully!\n\n".format(package_name))
 
-        # Set Output
-        #print("::set-output name=build_path::{}\n\n".format(export_file))
-        with open(os.getenv("GITHUB_ENV"), "a") as env:
+        # Set Output to action step
+        with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
             env.write("BUILD_PATH={}".format(export_file))
-        #with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
-        #    env.write("BUILD_PATH={}".format(export_file))
 
 # - - - - RUN SCRIPT
 
