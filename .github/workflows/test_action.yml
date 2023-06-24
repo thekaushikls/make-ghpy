@@ -23,13 +23,9 @@ jobs:
         source: src
         package-name: plugin
         version: "${{github.ref_name}}"
-    
-    - name: Check
-      shell: bash
-      run: echo build_path "${{steps.build-plugin.outputs.build_path}}"
 
-    #- name: Upload Artifact
-    #  uses: actions/upload-artifact@v3
-    #  with:
-    #    name: my_package
-    #    path: $#{{steps.build-plugin.outputs.build_path}}
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: my_package
+        path: ${{steps.build-plugin.outputs.build_path}}
