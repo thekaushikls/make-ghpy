@@ -41,8 +41,16 @@ runs:
       run: |
         echo SETTING VALUES TO OUTPUT
         echo The build_path is: "${{steps.compile.outputs.BUILD_PATH}}"
-        echo "build_path=${{steps.compile.outputs.BUILD_PATH}}" >> "$env:GITHUB_OUTPUT"     
-# $GITHUB_OUTPUT
+        echo "build_path=${{steps.compile.outputs.BUILD_PATH}}" >> $GITHUB_OUTPUT
+
+    - name: Check via Python
+      shell: python
+      run: |
+        import os
+        env = os.getenv("GITHUB_OUTPUT")
+        for item in env:
+          print(item)
+        
   
         
 
