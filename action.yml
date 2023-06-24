@@ -20,7 +20,7 @@ inputs:
     description: "Extension type of the package. Defaults to \".ghpy\""
     required: false
 outputs:
-  build_path: ${{steps.compile.outputs.BUILD_PATH}}
+  build_path:
     description: "Location of the built package."
 runs:
   using: 'composite'
