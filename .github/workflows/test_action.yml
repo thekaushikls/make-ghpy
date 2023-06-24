@@ -26,13 +26,10 @@ jobs:
     
     - name: Check
       shell: bash
-      run: |
-        echo The build_path is: "${{steps.build-plugin.outputs.build_path}}"
-        echo The alt build_path is: "${{steps.build-plugin.outputs.BUILD_PATH}}"
-        echo The alt file_name was: "bin/${{steps.build-plugin.inputs.package-name}}-${{steps.build-plugin.inputs.version}}.${{steps.build-plugin.inputs.type}}"
+      run: echo build_path "${{steps.build-plugin.outputs.build_path}}"
 
     #- name: Upload Artifact
     #  uses: actions/upload-artifact@v3
     #  with:
-    #    name: MyPlugin
+    #    name: my_package
     #    path: $#{{steps.build-plugin.outputs.build_path}}
