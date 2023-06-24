@@ -35,4 +35,4 @@ runs:
     - name: Compile Plugin
       id: compile
       shell: pwsh
-      run: ipy main.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
+      run: ipy $GITHUB_ACTION_PATH/main.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
