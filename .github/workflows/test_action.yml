@@ -28,6 +28,7 @@ jobs:
       shell: bash
       run: |
         echo The build_path is: "${{steps.build-plugin.outputs.build_path}}"
+        echo The alt build_path is: "${{steps.build-plugin.outputs.BUILD_PATH}}"
 
     #- name: Upload Artifact
     #  uses: actions/upload-artifact@v3
