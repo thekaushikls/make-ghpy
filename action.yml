@@ -35,5 +35,5 @@ runs:
 #      id: compile
 #      shell: bash
 #      run: ipy main.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
-    - run: echo python $GITHUB_ACTION_PATH\main.py
+    - run: echo python ${{ github.action_path }}\main.py
       shell: pwsh
