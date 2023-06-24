@@ -36,4 +36,4 @@ runs:
 
     - name: Set Output
       shell: bash
-      run: echo $${{GITHUB_OUTPUT}}
+      run: echo $${{GITHUB_ENV}}
