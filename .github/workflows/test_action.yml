@@ -16,10 +16,6 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v3
 
-    - name: Install IronPython
-      shell: cmd
-      run: choco install ironpython --version=2.7.12
-
     - name: Build Plugin
       id: build-plugin
       uses: ./
@@ -27,6 +23,7 @@ jobs:
         source: src
         package-name: plugin
         version: v0.0.1-alpha
+        ironpython: true
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
