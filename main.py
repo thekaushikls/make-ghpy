@@ -88,9 +88,7 @@ class Compiler:
         clr.CompileModules(export_file, *program_files)
         print("\n\n\"{}\" was created successfully!\n\n".format(package_name))
 
-        # Set Output to action step
-        with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
-            env.write("BUILD_PATH={}".format(export_file))
+        return export_file
 
 # - - - - RUN SCRIPT
 
@@ -101,4 +99,8 @@ if __name__ == "__main__":
     if len(args) > 4:
         raise SyntaxError("Script takes a maximum of 4 arguments. {} provided.".format(len(args)))
     
-    Compiler.build_plugin(*args)
+    export_file = Compiler.build_plugin(*args)
+
+    # Set Output to action step
+    with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
+        env.write("BUILD_PATH={}".format(export_file))
