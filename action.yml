@@ -36,20 +36,3 @@ runs:
       id: compile
       shell: pwsh
       run: ipy main.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
-    
-#    - name: Check
-#      shell: bash
-#      run: |
-#        echo SETTING VALUES TO OUTPUT       
-#        echo "build_path=${{steps.compile.outputs.BUILD_PATH}}" >> $GITHUB_OUTPUT
-#        echo The build_path is: "${{steps.compile.outputs.BUILD_PATH}}"        
-#        echo "::set-output name=build_path::${{steps.compile.outputs.BUILD_PATH}}"        
-    
-    - name: Check
-      shell: bash
-      env:
-        BUILD_PATH: ${{steps.compile.outputs.BUILD_PATH}}
-      run: |
-        echo SETTING VALUES TO OUTPUT
-        echo "The build_path is: ${BUILD_PATH}"
-        echo "build_path=${BUILD_PATH}" >> $GITHUB_OUTPUT

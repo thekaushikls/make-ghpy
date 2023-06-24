@@ -103,4 +103,4 @@ if __name__ == "__main__":
 
     # Set Output to action step
     with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
-        env.write("BUILD_PATH={}".format(export_file))
+        env.write("build_path={}".format(export_file))
