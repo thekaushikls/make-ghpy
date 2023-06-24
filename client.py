@@ -77,6 +77,12 @@ class Compiler:
         export_dir = os.path.join(root_dir, "bin")
         export_file = os.path.join(export_dir, package_name)
 
+        print("package_name: {}".format(package_name))
+        print("root_dir: {}".format(root_dir))
+        print("export_dir: {}".format(export_dir))
+        print("export_file: {}".format(export_file))
+
+
         # Create export folder:
         if not os.path.exists(export_dir):
             os.makedirs(export_dir)
@@ -85,6 +91,10 @@ class Compiler:
         print("Collecting program files...\n")
         program_files = Compiler.collect_files(source_dir)            
 
+        print("program_files")
+        for item in program_files:
+            print(item)
+        
         # Compile Plugin
         import clr
         clr.CompileModules(export_file, *program_files)
