@@ -27,7 +27,6 @@ jobs:
         source: src
         package-name: plugin
         version: v0.0.1-alpha
-        ironpython: false
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3

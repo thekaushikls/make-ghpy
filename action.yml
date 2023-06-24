@@ -45,4 +45,4 @@ runs:
     - name: Compile Plugin
       id: compile
       shell: bash
-      run: ipy ${{github.action_path}}/build.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
+      run: ipy ${{github.action_path}}/script.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
