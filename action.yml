@@ -8,15 +8,15 @@ branding:
 
 inputs:
   source:
-    description: "Source folder"
+    description: "Root folder for python source."
     required: true
   
   package-name:
-    description: "Name of the package."
+    description: "Name of the compiled binary / plugin."
     required: true
   
   version:
-    description: "Version tag of the plugin"
+    description: "Version tag to add with name."
     required: true
   
   type:
@@ -26,7 +26,7 @@ inputs:
   
   ironpython:
     default: false
-    description: "If true, install IronPython v2.7.12"
+    description: "If true, installs IronPython v2.7.12 internally."
     required: false
 
 outputs:
