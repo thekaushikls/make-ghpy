@@ -1,4 +1,4 @@
-name: Test make-ghpy action
+name: Test action
 
 on:
   push:
@@ -20,13 +20,14 @@ jobs:
       id: build-plugin
       uses: ./
       with:
-        source: src
+        source: tests
         package-name: plugin
         version: v0.0.1-alpha
+        type: ghpy
         ironpython: true
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: my_plugin
+        name: plugin
         path: ${{steps.build-plugin.outputs.build}}

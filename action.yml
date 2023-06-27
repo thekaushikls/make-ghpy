@@ -1,9 +1,10 @@
-name: 'Make.GhPy'
-description: 'A GitHub Action that runs a Python script with a Hello, World! program.'
-author: 'Your Name'
+name: "Make-GhPy"
+description: "About
+GitHub Action to compile IronPython files into Grasshopper-Python (GhPy) plugin."
+author: "Kaushik LS"
 branding:
-  icon: "package"
-  color: "purple"
+  icon: "chevron-right"
+  color: "yellow"
 
 inputs:
   source:
@@ -45,4 +46,4 @@ runs:
     - name: Compile Plugin
       id: compile
       shell: pwsh
-      run: ipy ${{github.action_path}}/script.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
+      run: ipy ${{github.action_path}}/build.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}

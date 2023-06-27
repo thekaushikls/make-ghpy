@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*
+
 # - - - - IN-BUILT IMPORTS
 import sys, os
 
-# - - - - CLASS
+# - - - - CLASS LIBRARY
 class Compiler:
 
     @staticmethod
@@ -91,16 +92,14 @@ class Compiler:
         return export_file
 
 # - - - - RUN SCRIPT
-
 if __name__ == "__main__":
     
     args = sys.argv[1:]
-
     if len(args) > 4:
         raise SyntaxError("Script takes a maximum of 4 arguments. {} provided.".format(len(args)))
     
     build = Compiler.build_plugin(*args)
 
-    # Set Output to action step
+    # Set Output to GitHub Action
     with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
         env.write("build={}".format(build))
