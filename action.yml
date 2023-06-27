@@ -3,8 +3,8 @@ description: "About
 GitHub Action to compile IronPython files into Grasshopper-Python (GhPy) plugin."
 author: "Kaushik LS"
 branding:
-  icon: "chevron-right"
-  color: "yellow"
+  icon: "package"
+  color: "gray-dark"
 
 inputs:
   source:
