@@ -22,7 +22,8 @@
 ```
 
 ## 🎛️ Usage
-See [action.yml](https://github.com/thekaushikls/make-ghpy/blob/main/action.yml)
+See [test_action.yml](.github/workflows/test_action.yml) for example.
+
 ``` YML
 - uses: thekaushikls/make-ghpy
   with:
