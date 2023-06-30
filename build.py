@@ -69,7 +69,6 @@ class Compiler:
         if not Compiler.ironpython_active():
             raise SystemError("IronPython is not running.")
     
-        Compiler.print_logo()
         Compiler.print_title()
         if version != "":
             package_name += "-{}".format(version)
