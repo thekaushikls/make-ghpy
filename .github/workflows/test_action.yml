@@ -26,5 +26,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: plugin-v0.0.1-alpha
-        path: ${{steps.build-plugin.outputs.build}}
+        name: ${{ steps.build-plugin.outputs.name }}
+        path: ${{ steps.build-plugin.outputs.build }}
+        if-no-files-found: error
+        retention-days: 1

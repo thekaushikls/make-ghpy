@@ -1,6 +1,5 @@
 name: "Make-GhPy"
-description: "About
-GitHub Action to compile IronPython files into Grasshopper-Python (GhPy) plugin."
+description: "GitHub Action to compile IronPython files into Grasshopper-Python (GhPy) plugin."
 author: "Kaushik LS"
 branding:
   icon: "package"
@@ -30,20 +29,28 @@ inputs:
     required: false
 
 outputs:
+  name:
+    description: "Name of the compiled package."
+    value: ${{ steps.compile.outputs.name }}
+  
+  full-name:
+    description: "Full name of the compiled package."
+    value: $${{ steps.compile.outputs.full-name }}
+  
   build:
-    description: "Location of the built package."
-    value: ${{steps.compile.outputs.build}}
-    
+    description: "Location of the compiled package."
+    value: ${{ steps.compile.outputs.build }}
+
 runs:
   using: 'composite'
   steps:
 
     - name: Install IronPython
       shell: pwsh
-      if: ${{inputs.ironpython == 'true'}}
+      if: ${{ inputs.ironpython == 'true' }}
       run: choco install ironpython --version=2.7.12
 
     - name: Compile Plugin
       id: compile
       shell: pwsh
-      run: ipy ${{github.action_path}}/build.py ${{inputs.source}} ${{inputs.package-name}} ${{inputs.version}} ${{inputs.type}}
+      run: ipy ${{ github.action_path }}/build.py ${{ inputs.source }} ${{ inputs.package-name }} ${{ inputs.version }} ${{ inputs.type }}

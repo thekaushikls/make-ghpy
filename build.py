@@ -70,11 +70,13 @@ class Compiler:
             raise SystemError("IronPython is not running.")
     
         Compiler.print_title()
+        if version != "":
+            package_name += "-{}".format(version)
+        package_full_name = "{}.{}".format(package_name, extension)
 
-        package_name += "-{}.{}".format(version, extension)
         root_dir = os.path.dirname(source_dir)
         export_dir = os.path.join(root_dir, "bin")
-        export_file = os.path.join(export_dir, package_name)
+        export_file = os.path.join(export_dir, package_full_name)
 
         # Create export folder:
         if not os.path.exists(export_dir):
@@ -87,9 +89,9 @@ class Compiler:
         # Compile Plugin
         import clr
         clr.CompileModules(export_file, *program_files)
-        print("\n\n\"{}\" was created successfully!\n\n".format(package_name))
+        print("\n\n\"{}\" was created successfully!\n\n".format(package_full_name))
 
-        return export_file
+        return package_name, package_full_name, export_file
 
 # - - - - RUN SCRIPT
 if __name__ == "__main__":
@@ -98,8 +100,10 @@ if __name__ == "__main__":
     if len(args) > 4:
         raise SyntaxError("Script takes a maximum of 4 arguments. {} provided.".format(len(args)))
     
-    build = Compiler.build_plugin(*args)
+    name, full_name, path = Compiler.build_plugin(*args)
 
     # Set Output to GitHub Action
     with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
-        env.write("build={}".format(build))
+        env.write("name={}".format(name))
+        env.write("full-name={}".format(full_name))
+        env.write("build={}".format(path))

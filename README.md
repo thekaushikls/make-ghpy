@@ -4,7 +4,11 @@
 
 * Collects all python (.py) files recursively from the specified `source` folder.
 * Uses `CLR` to compile to a `.ghpy` (or `.dll`) binary.
-* Outputs `build_path` of the binary for downstream use.
+* Outputs 
+  1. `name` of the compiled binary _(without file extension)_
+  2. `full-name` of the compiled binary.
+  3. `build` of the compiled binary for downstream use.
+  
 
 ## 🚀 Quick reference
 ``` YML
