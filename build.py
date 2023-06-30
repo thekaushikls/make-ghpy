@@ -104,8 +104,8 @@ if __name__ == "__main__":
 
     # Set Output to GitHub Action
     with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
-        env.write("name={}".format(name))
+        env.write("name={}\n".format(name))
     with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
-        env.write("full-name={}".format(full_name))
+        env.write("full-name={}\n".format(full_name))
     with open(os.getenv("GITHUB_OUTPUT"), "a") as env:
-        env.write("build={}".format(path))
+        env.write("build={}\n".format(path))
