@@ -21,7 +21,7 @@ class Compiler:
         
     @staticmethod
     def print_title():
-        print("\n\nnpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbq\n\n █▀▄▀█ ▄▀█ █▄▀ █▀▀ ░ █▀▀ █░█ █▀█ █▄█\n █░▀░█ █▀█ █░█ ██▄ ▄ █▄█ █▀█ █▀▀ ░█░\n\nnpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbq\n\n")
+        print("""\n\nnpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbq\n\n   +MMMMm\n  +M(%)Py""-+\n  MAghP'_====>\n :MMMMMMP\n gMMMMMMM+\n+MMMMM*MM+\nMMMYY+  `MM+\nMM YYYY+  `M+\nM'   YYYKYY+`M+\nY     YYYAYYY+YY+\n\      *YYYUYYYYY+\n \        YHHSYYYYY\n  \          YHHHYYY+\n   `+   ++ +    IHHYY+\n     `-+  " " MMMMKHHYY\n        "'M++M+ MMMGGHHY\n          M  M     MMMGGHH+\n          M  M        YHHHHH\n         // //           YHHHH+\n        // //               YHHH+\n      _//_//_                 `HHHH++\n     // //\ \\                  `HHHHHh+\n                                  `YY `YY\n\n   █▀▄▀█ ▄▀█ █▄▀ █▀▀ ░ █▀▀ █░█ █▀█ █▄█\n   █░▀░█ █▀█ █░█ ██▄ ▄ █▄█ █▀█ █▀▀ ░█░\n\nnpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbqpdbq\n\n""")
 
     @staticmethod
     def collect_files(source_dir):
@@ -69,6 +69,7 @@ class Compiler:
         if not Compiler.ironpython_active():
             raise SystemError("IronPython is not running.")
     
+        Compiler.print_logo()
         Compiler.print_title()
         if version != "":
             package_name += "-{}".format(version)
