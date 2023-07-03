@@ -12,7 +12,7 @@
 
 ## 🚀 Quick reference
 ``` YML
-- uses: thekaushikls/make-ghpy
+- uses: thekaushikls/make-ghpy@v1.0.1
   with:
     source: src
     package-name: my_plugin
@@ -25,7 +25,7 @@
 See [test_action.yml](.github/workflows/test_action.yml) for example.
 
 ``` YML
-- uses: thekaushikls/make-ghpy
+- uses: thekaushikls/make-ghpy@v1.0.1
   with:
   
     # Root folder for python source.
