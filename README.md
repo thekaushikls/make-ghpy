@@ -1,6 +1,8 @@
 # make-ghpy
 ###### Github Action to create Grasshopper-Python `.ghpy` plugin.
 [![Test Action](https://github.com/thekaushikls/make-ghpy/actions/workflows/test_action.yml/badge.svg)](https://github.com/thekaushikls/make-ghpy/actions/workflows/test_action.yml)
+[![release)](https://img.shields.io/github/v/release/thekaushikls/make-ghpy?include_prereleases)](https://github.com/thekaushikls/make-ghpy/releases/latest)
+[![GitHub](https://img.shields.io/github/license/thekaushikls/make-ghpy)](https://github.com/thekaushikls/make-ghpy/blob/main/LICENSE)
 
 * Collects all python (.py) files recursively from the specified `source` folder.
 * Uses `CLR` to compile to a `.ghpy` (or `.dll`) binary.
