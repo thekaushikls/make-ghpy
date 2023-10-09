@@ -42,7 +42,7 @@ jobs:
 
       - name: Build Plugin
         id: build-plugin
-        uses: thekaushikls/make-ghpy@v1.0.1
+        uses: thekaushikls/make-ghpy@latest
         with:
           source: ${{ github.event.inputs.source }}
           package-name: ${{ github.event.inputs.package-name }}
