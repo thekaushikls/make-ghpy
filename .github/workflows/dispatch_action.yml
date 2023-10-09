@@ -1,0 +1,58 @@
+name: Dispatch Action
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Root folder of source code.
+        required: false
+        default: tests
+
+      package-name:
+        description: Name of the plugin / binary.
+        required: false
+        default: plugin
+
+      version:
+        description: The release version tag to be included in the name.
+        required: false
+        default: v0.0.1-alpha
+      
+      type:
+        description: File type (extension) of the compiled plugin.
+        required: false
+        default: ghpy
+
+      ironpython:
+        description: If true, installs ironpython v2.7.12
+        required: false
+        default: true
+
+jobs:
+  build:
+    runs-on: [windows-latest]
+    
+    steps:
+      - name: Checkout Repo
+        uses: actions/Checkout@v3
+      
+      - name: Install IronPython
+        if: ${{ github.event.inputs.ironpython == 'true' }}
+        run: choco install ironpython --version=2.7.12
+
+      - name: Build Plugin
+        id: build-plugin
+        uses: thekaushikls/make-ghpy@v1.0.1
+        with:
+          source: ${{ github.event.inputs.source }}
+          package-name: ${{ github.event.inputs.package-name }}
+          version: ${{ github.event.inputs.version }}
+          ironpython: ${{ github.event.inputs.ironpython }}
+      
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.build-plugin.outputs.name }}
+          path: ${{ steps.build-plugin.outputs.build }}
+          if-no-files-found: error
+          retention-days: 1
